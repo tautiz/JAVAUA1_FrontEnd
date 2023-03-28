@@ -1,3 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+}
+
+.meniu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meniu li {
+    margin: 0 20px;
+}
+
+.meniu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    transition: color 0.3s;
+}
+
+.meniu li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.meniu li a:hover {
+    color: #f1c40f;
+}
+
+.meniu li a:hover::before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.meniu li a:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(241, 196, 15, 0.75);
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-meniu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-meniu li {
+    margin: 0 20px;
+}
+
+.footer-meniu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-meniu li a:hover {
+    color: #f1c40f;
+}
+
+.footer-meniu li a:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(241, 196, 15, 0.75);
+}
+
 .aktyvus {
     background-color: #f00;
     color: #fff;
