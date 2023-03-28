@@ -79,6 +79,7 @@ footer {
     justify-content: center;
     align-items: center;
     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+    height: 100px;
 }
 
 .footer-meniu {
@@ -86,19 +87,22 @@ footer {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    width: 400px;
 }
 
 .footer-meniu li {
-    margin: 0 20px;
+    width: 20%;
+    margin-bottom: 10px;
 }
 
 .footer-meniu li a {
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
-    display: inline-block;
+    font-size: 14px;
+    display: block;
     position: relative;
     padding: 0 10px;
     transition: color 0.3s;
@@ -113,7 +117,9 @@ footer {
     box-shadow: 0 0 5px rgba(241, 196, 15, 0.75);
 }
 
-.aktyvus {
-    background-color: #f00;
-    color: #fff;
+footer nav {
+    width: 80%;
+    height: 100%;
 }
+
+/* END Footer styles */

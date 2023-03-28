@@ -1,0 +1,9 @@
+/* Main styles */
+main {
+    min-height: calc(100vh - 60px - 100px); /* 100vh minus header and footer heights */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

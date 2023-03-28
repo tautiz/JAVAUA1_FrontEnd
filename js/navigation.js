@@ -29,23 +29,46 @@ function gautiMeniuSarasa(meniuVieta) {
         case 'FOOTER':
             meniu = [
                 {
-                    pavadinimas: 'About',
+                    pavadinimas: 'Apie',
                     nuoroda: 'about.html',
                 },
                 {
                     nuoroda: 'services.html',
-                    pavadinimas: 'Services'
+                    pavadinimas: 'Paslaugos'
 
                 },
                 {
                     nuoroda: 'products.html',
-                    pavadinimas: 'Products'
+                    pavadinimas: 'Produktai'
 
                 },
                 {
-                    pavadinimas: 'Contact',
+                    pavadinimas: 'Kontaktai',
                     nuoroda: 'contact.html'
-
+                },
+                {
+                    pavadinimas: 'Privatumas',
+                    nuoroda: 'contact.html'
+                },
+                {
+                    pavadinimas: 'Sąlygos',
+                    nuoroda: 'contact.html'
+                },
+                {
+                    pavadinimas: 'Pagalba',
+                    nuoroda: 'contact.html'
+                },
+                {
+                    pavadinimas: 'Karjera',
+                    nuoroda: 'contact.html'
+                },
+                {
+                    pavadinimas: 'DUK',
+                    nuoroda: 'contact.html'
+                },
+                {
+                    pavadinimas: 'Blogas',
+                    nuoroda: 'contact.html'
                 }
             ];
             break;
