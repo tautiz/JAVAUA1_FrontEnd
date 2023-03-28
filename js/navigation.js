@@ -23,7 +23,6 @@ function gautiMeniuSarasa(meniuVieta) {
                 {
                     pavadinimas: 'Contact',
                     nuoroda: 'contact.html'
-
                 }
             ];
             break;
@@ -63,9 +62,11 @@ function generuotiMeniu(meniuDuomenys, meniuVieta){
     // Nustatome kuris puslapis šiuo metu yra aktyvus
     let aktyvusPuslapis = gautiPuslapioPavadinima();
 
-    for (let i = 0; i < meniuDuomenys.length; i++) {
-        let elem = meniuDuomenys[i];
+    // arr.forEach(value => {
+    //     console.log(value); // output: 1 2 3 4 5 6
+    // });
 
+    meniuDuomenys.forEach(elem => {
         let naujasMeniuElementas = document.createElement('li');
         let nuoroda = document.createElement('a');
 
@@ -74,14 +75,14 @@ function generuotiMeniu(meniuDuomenys, meniuVieta){
         }
 
         let urlAdresas = elem.nuoroda + '#' + elem.pavadinimas;
-
         nuoroda.setAttribute('href', urlAdresas);
+
         nuoroda.innerHTML = elem.pavadinimas;
 
         naujasMeniuElementas.appendChild(nuoroda);
 
         meniuVieta.appendChild(naujasMeniuElementas);
-    }
+    });
 }
 
 // Nurodome kuriame elemente norime spausdinti savo meniu
