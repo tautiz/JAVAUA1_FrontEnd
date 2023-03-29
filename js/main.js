@@ -6,9 +6,9 @@ function saugoti() {
 }
 
 laukelis.addEventListener('keyup', function () {
-    saugoti();
-    gautiDuomenis();
-}
+        saugoti();
+        gautiDuomenis();
+    }
 );
 
 function gautiDuomenis() {

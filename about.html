@@ -6,6 +6,7 @@
     <title>Apie mane</title>
     <link rel="stylesheet" href="css/meniu.css">
     <link rel="stylesheet" href="css/layout.css">
+    <script src="js/login.js"></script>
 </head>
 <body>
 
@@ -16,7 +17,18 @@
     </nav>
 </header>
 <main>
-    Labas pasauli! tai apie mane...
+    <div>
+        Labas pasauli! tai apie mane...
+        <br/>
+
+        <div id="loginform">
+            <input type="text" id="userName" placeholder="User Name">
+            <br/>
+            <input type="password" id="password" placeholder="Your password">
+            <br/>
+            <input type="button" id="login" value="Login">
+        </div>
+    </div>
 </main>
 <footer>
     <nav>
@@ -25,7 +37,8 @@
     </nav>
 </footer>
 
-<script src="js/main.js" defer></script>
+<!--<script src="js/main.js" defer></script>-->
 <script src="js/navigation.js" defer></script>
+
 </body>
 </html>
