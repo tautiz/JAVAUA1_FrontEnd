@@ -1,12 +1,17 @@
-let numbers = [5, 1, 7, 2, -9, 8, 2, 7, 9, 4, -5, 2, -6, 8, -4, 6];
+let laukelis = document.querySelector('#tekstas');
 
-function arrayDoubled(array) {
-// return array.map(num => num * 2);
-    return array.map(double);
+function saugoti() {
+    let tekstas = laukelis.value;
+    localStorage.setItem('duomenys', tekstas);
 }
 
-function double(num) {
-    return num * 2;
+laukelis.addEventListener('keyup', function () {
+    saugoti();
+    gautiDuomenis();
 }
+);
 
-console.log(arrayDoubled(numbers));
+function gautiDuomenis() {
+    let duomenysIsStorage = localStorage.getItem('duomenys');
+    document.getElementById('laukelioData').innerHTML = duomenysIsStorage;
+}
