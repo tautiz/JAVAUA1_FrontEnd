@@ -23,6 +23,10 @@ function gautiMeniuSarasa(meniuVieta) {
                 {
                     pavadinimas: 'Contact',
                     nuoroda: 'contact.html'
+                },
+                {
+                    pavadinimas: 'Settings',
+                    nuoroda: 'user_settings.html'
                 }
             ];
             break;

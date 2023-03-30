@@ -4,10 +4,12 @@ window.onload = function () {
     if (LoggedUser) {
         const userioVardas = JSON.parse(LoggedUser).userName
         document.getElementById("loginform").innerHTML = "Sėkimgai prisijungete..." + userioVardas;
+    } else {
+        const loginButton = document.getElementById("login");
+        loginButton.addEventListener("click", login);
     }
 
     const vartotojas = {userName: `admin`, password: "slapta"};
-    const loginButton = document.getElementById("login");
 
     function login() {
         let userName = document.getElementById("userName").value;
@@ -19,6 +21,4 @@ window.onload = function () {
             alert("Neteisingi prisijungimo duomenys");
         }
     }
-
-    loginButton.addEventListener("click", login);
 };
