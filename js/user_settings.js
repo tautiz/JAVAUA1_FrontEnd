@@ -1,7 +1,7 @@
 window.onload = function (){
     /** --- Funkciju ir kintamuju deklaracijos ---  */
     const defaultExpirationTime = 'Fri, 31 Dec 9999 23:59:59 GMT';
-    const defaultColor = 'white';
+    const defaultColor = 'red';
 
     function setCookie(key, value, date){
         document.cookie = key + '=' + value + ';SameSite=None;Secure;Expiration=' + date;
@@ -9,8 +9,8 @@ window.onload = function (){
 
     function getCookie(key){
         const cookie = document.cookie || '';
-        let cookieData = cookie.match(new RegExp('(^| )' + key + '=([^;]+)'));
-        return cookieData ? cookieData[2] : null;
+        let cookieData = cookie.match(new RegExp('(^| )(?<key>' + key + ')=(?<value>[^;]+)'));
+        return cookieData ? cookieData.groups.value : null;
     }
 
     function changeColorScheme(color) {
@@ -24,7 +24,6 @@ window.onload = function (){
     function saveColor(){
         let colorScheme = document.querySelector('#color-scheme').value;
         setCookie('colorScheme', colorScheme, defaultExpirationTime);
-        changeColorScheme(colorScheme);
     }
 
     function setDefaultColor(){
