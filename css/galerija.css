@@ -1,0 +1,13 @@
+.gallery {
+    display: grid;
+    grid-row: auto;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.gallery_item {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 10px;
+}
