@@ -21,6 +21,11 @@ function gautiMeniuSarasa(meniuVieta) {
 
                 },
                 {
+                    nuoroda: 'Chuck_jokes.html',
+                    pavadinimas: 'Chuck jokes'
+
+                },
+                {
                     pavadinimas: 'Contact',
                     nuoroda: 'contact.html'
                 },

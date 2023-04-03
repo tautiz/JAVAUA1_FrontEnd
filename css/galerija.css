@@ -11,3 +11,29 @@
     object-fit: cover;
     margin: 10px;
 }
+.close-button {
+    float: right;
+}
+
+.btn {
+    @apply bg-orange-300 text-white font-semibold py-2 px-6 rounded-full shadow;
+    transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.btn:hover {
+    @apply bg-orange-400 shadow-lg;
+    animation: pulse 1s infinite;
+    transform: translateY(-1px);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 159, 85, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 159, 85, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 159, 85, 0);
+    }
+}
