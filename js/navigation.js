@@ -1,129 +1,67 @@
-function gautiMeniuSarasa(meniuVieta) {
-    let meniu = [];
-    // Kuriame elemente yra UL tagas
-    let kurYraMeniu = meniuVieta.parentElement.parentElement.tagName;
+export class Navigation {
+    constructor(loader = null) {
+        if (!loader) throw new Error('Loader is required');
+        this.loader = loader;
+        let whereToAppend = document.querySelector('header > nav');
+        this.loader.preloader.show(whereToAppend);
 
-    // Pagal tevini taga grazinti atitinkama meniu
-    switch (kurYraMeniu) {
-        case 'HEADER':
-            meniu = [
-                {
-                    pavadinimas: 'Home',
-                    nuoroda: 'index.html'
-                },
-                {
-                    pavadinimas: 'About',
-                    nuoroda: 'about.html',
-                },
-                {
-                    nuoroda: 'services.html',
-                    pavadinimas: 'Services'
+        // Nurodome kuriame elemente norime spausdinti savo meniu
+        let topMenu = document.querySelector('header > nav > ul');
+        let bottomMenu = document.querySelector('footer > nav > ul');
 
-                },
-                {
-                    nuoroda: 'Chuck_jokes.html',
-                    pavadinimas: 'Chuck jokes'
+        this.loader.get('menu_footer.json', (data) => {
+            console.log(data);
+            this.generateMenu(data, bottomMenu);
+        }, 'json');
 
-                },
-                {
-                    pavadinimas: 'Contact',
-                    nuoroda: 'contact.html'
-                },
-                {
-                    pavadinimas: 'Settings',
-                    nuoroda: 'user_settings.html'
-                }
-            ];
-            break;
-        case 'FOOTER':
-            meniu = [
-                {
-                    pavadinimas: 'Apie',
-                    nuoroda: 'about.html',
-                },
-                {
-                    nuoroda: 'services.html',
-                    pavadinimas: 'Paslaugos'
+        this.loader.get('menu.json', (data) => {
+            console.log(data);
+            this.generateMenu(data, topMenu);
+        }, 'json');
 
-                },
-                {
-                    nuoroda: 'products.html',
-                    pavadinimas: 'Produktai'
+        // Nustatome kuris puslapis šiuo metu yra aktyvus
+        this.loadPage('home.html');
 
-                },
-                {
-                    pavadinimas: 'Kontaktai',
-                    nuoroda: 'contact.html'
-                },
-                {
-                    pavadinimas: 'Privatumas',
-                    nuoroda: 'contact.html'
-                },
-                {
-                    pavadinimas: 'Sąlygos',
-                    nuoroda: 'contact.html'
-                },
-                {
-                    pavadinimas: 'Pagalba',
-                    nuoroda: 'contact.html'
-                },
-                {
-                    pavadinimas: 'Karjera',
-                    nuoroda: 'contact.html'
-                },
-                {
-                    pavadinimas: 'DUK',
-                    nuoroda: 'contact.html'
-                },
-                {
-                    pavadinimas: 'Blogas',
-                    nuoroda: 'contact.html'
-                }
-            ];
-            break;
     }
 
-    return meniu;
+    getPageName() {
+        return document.location.href.split('#')[1];
+    }
+
+    generateMenu(menuData, menuPlace) {
+        // Nustatome kuris puslapis šiuo metu yra aktyvus
+        let activePage = this.getPageName();
+
+        menuData.forEach(elem => {
+            let newMenuItem = document.createElement('li');
+            let link = document.createElement('a');
+
+            if (elem.pavadinimas === activePage) {
+                newMenuItem.classList.add('aktyvus');
+            }
+
+            let urlAddress = elem.nuoroda + '#' + elem.pavadinimas;
+            link.setAttribute('href', urlAddress);
+
+            link.innerHTML = elem.pavadinimas;
+
+            newMenuItem.appendChild(link);
+            newMenuItem.addEventListener('click', (event) => {
+                event.preventDefault();
+                this.loadPage(elem.nuoroda);
+            });
+            menuPlace.appendChild(newMenuItem);
+        });
+    }
+
+    renderPageInMainTag(content) {
+        let main = document.querySelector('main > .content');
+        main.innerHTML = content;
+    }
+
+    loadPage(url) {
+        let whereToAppend = document.querySelector('main > .content');
+        this.loader.preloader.show(whereToAppend);
+        this.loader.get(url, this.renderPageInMainTag);
+    }
 }
-
-function gautiPuslapioPavadinima() {
-    return document.location.href.split('#')[1];
-}
-
-function generuotiMeniu(meniuDuomenys, meniuVieta){
-    // Nustatome kuris puslapis šiuo metu yra aktyvus
-    let aktyvusPuslapis = gautiPuslapioPavadinima();
-
-    // arr.forEach(value => {
-    //     console.log(value); // output: 1 2 3 4 5 6
-    // });
-
-    meniuDuomenys.forEach(elem => {
-        let naujasMeniuElementas = document.createElement('li');
-        let nuoroda = document.createElement('a');
-
-        if (elem.pavadinimas === aktyvusPuslapis) {
-            naujasMeniuElementas.classList.add('aktyvus');
-        }
-
-        let urlAdresas = elem.nuoroda + '#' + elem.pavadinimas;
-        nuoroda.setAttribute('href', urlAdresas);
-
-        nuoroda.innerHTML = elem.pavadinimas;
-
-        naujasMeniuElementas.appendChild(nuoroda);
-
-        meniuVieta.appendChild(naujasMeniuElementas);
-    });
-}
-
-// Nurodome kuriame elemente norime spausdinti savo meniu
-let meniuVietaTop = document.querySelector('header > nav > ul');
-let meniuVietaBottom = document.querySelector('footer > nav > ul');
-
-// Gauname Menių sarasa, pagal tai kuris elementas yra tevinis, meniuVietaTop elemento atžvilgiu
-let meniuSarasasTop = gautiMeniuSarasa(meniuVietaTop);
-let meniuSarasasBottom = gautiMeniuSarasa(meniuVietaBottom);
-
-generuotiMeniu(meniuSarasasTop, meniuVietaTop);
-generuotiMeniu(meniuSarasasBottom, meniuVietaBottom);

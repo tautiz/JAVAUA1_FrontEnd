@@ -1,0 +1,42 @@
+[
+  {
+    "pavadinimas": "Apie",
+    "nuoroda": "about.html"
+  },
+  {
+    "nuoroda": "services.html",
+    "pavadinimas": "Paslaugos"
+  },
+  {
+    "nuoroda": "products.html",
+    "pavadinimas": "Produktai"
+  },
+  {
+    "pavadinimas": "Kontaktai",
+    "nuoroda": "contact.html"
+  },
+  {
+    "pavadinimas": "Privatumas",
+    "nuoroda": "contact.html"
+  },
+  {
+    "pavadinimas": "Sąlygos",
+    "nuoroda": "contact.html"
+  },
+  {
+    "pavadinimas": "Pagalba",
+    "nuoroda": "contact.html"
+  },
+  {
+    "pavadinimas": "Karjera",
+    "nuoroda": "contact.html"
+  },
+  {
+    "pavadinimas": "DUK",
+    "nuoroda": "contact.html"
+  },
+  {
+    "pavadinimas": "Blogas",
+    "nuoroda": "contact.html"
+  }
+]

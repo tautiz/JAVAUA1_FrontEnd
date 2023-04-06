@@ -1,0 +1,26 @@
+[
+  {
+    "pavadinimas": "Home",
+    "nuoroda": "home.html"
+  },
+  {
+    "pavadinimas": "About",
+    "nuoroda": "about.html"
+  },
+  {
+    "nuoroda": "services.html",
+    "pavadinimas": "Services"
+  },
+  {
+    "nuoroda": "Chuck_jokes.html",
+    "pavadinimas": "Chuck jokes"
+  },
+  {
+    "pavadinimas": "Contact",
+    "nuoroda": "contact.html"
+  },
+  {
+    "pavadinimas": "Settings",
+    "nuoroda": "user_settings.html"
+  }
+]
