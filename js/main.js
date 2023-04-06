@@ -16,12 +16,26 @@ function getUsers(url, callback) {
         console.log('Gavau duomenis ir kvieciu Callback f-ja');
         callback(duomenys);
         console.log('Baigesi Callback f-ja');
-    });
+        salintiPreloaderi();
+    }).catch(err => {console.error(err); rodytiKlaida();});
+}
+
+function salintiPreloaderi() {
+    console.log('Salinu preloaderi');
+    document.getElementById('preloader').style.display = 'none';
+}
+
+function rodytiKlaida() {
+    let elementas = document.createElement('div');
+    elementas.className = 'error';
+    elementas.innerHTML = '<h1>Klaida</h1>';
+    document.querySelector('main').prepend(elementas);
 }
 
 function appendToUsersElement(duomenys) {
     console.log('appendToUsersElement()');
     let users = document.getElementById('users');
+    if (!users) return console.error('Nerastas elementas su id="users"');
     users.innerHTML = '';
 
     duomenys.data.forEach(user => {
